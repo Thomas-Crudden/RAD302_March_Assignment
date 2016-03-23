@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "S00141926_RAD302_Assignment", "S00141926_RAD302_Assignment\S00141926_RAD302_Assignment.csproj", "{1E9172F6-606F-421F-B533-53AF6B05FC26}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1E9172F6-606F-421F-B533-53AF6B05FC26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E9172F6-606F-421F-B533-53AF6B05FC26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E9172F6-606F-421F-B533-53AF6B05FC26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E9172F6-606F-421F-B533-53AF6B05FC26}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
