@@ -16,28 +16,17 @@ namespace RAD302_S00141926.Migrations
 
         protected override void Seed(RAD302_S00141926.Models.MoviesDBContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+            
             var movies = new List<Movies>
             {
-                new Movies() {FilmName="The Social Network", ReleaseYear="2010", Director="David Fincher" },
-                new Movies() {FilmName="Her", ReleaseYear="2013", Director="Spike Jonze" },
-                new Movies() {FilmName="Boyhood", ReleaseYear="2014", Director="Richard Linklater" },
-                new Movies() {FilmName="No Country For Old Men", ReleaseYear="2007", Director="Coen Brothers" },
-                new Movies() {FilmName="There Will Be Blood", ReleaseYear="2007", Director="Paul Thomas Anderson" },
-                new Movies() {FilmName="Drive", ReleaseYear="2011", Director="Nicolas Winding Refn" },
-                new Movies() {FilmName="Eternal Sunshine of the Spotless Mind", ReleaseYear="2004", Director="Michel Gondry" },
-                new Movies() {FilmName="Under The Skin", ReleaseYear="2013", Director="Jonathan Glazer" }
+                new Movies() {ID=1, FilmName="The Social Network", ReleaseYear="2010", Director="David Fincher" },
+                new Movies() {ID=2, FilmName="Her", ReleaseYear="2013", Director="Spike Jonze" },
+                new Movies() {ID=3, FilmName="Boyhood", ReleaseYear="2014", Director="Richard Linklater" },
+                new Movies() {ID=4, FilmName="No Country For Old Men", ReleaseYear="2007", Director="Coen Brothers" },
+                new Movies() {ID=5, FilmName="There Will Be Blood", ReleaseYear="2007", Director="Paul Thomas Anderson" },
+                new Movies() {ID=6, FilmName="Drive", ReleaseYear="2011", Director="Nicolas Winding Refn" },
+                new Movies() {ID=7, FilmName="Eternal Sunshine of the Spotless Mind", ReleaseYear="2004", Director="Michel Gondry" },
+                new Movies() {ID=8, FilmName="Under The Skin", ReleaseYear="2013", Director="Jonathan Glazer" }
 
             };
         }

@@ -1,25 +1,122 @@
-﻿<div class="jumbotron">
-        <h1>ASP.NET</h1>
+﻿
+
+<div class="jumbotron">
+      <h1>Thomas Crudden - S00141926</h1>
         <p class="lead"></p>
-        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-    </div>
+        
+</div>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Modern Movie Classics</h2>
+        <input type="button" value="Get Movies" class="btn btn-primary" onclick="getMovies()"/>
+        <ul id="movie-list" class="list-group" />     
+    </div>  
+
     <div class="row">
         <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-            a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-            is an ideal platform for building RESTful applications on the .NET Framework.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
+            <h2>Movies</h2>
+            <select id="lstMovies" size="2" onchange="MovieSelected()" style="width:100%"></select>
         </div>
     </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Create Movie</h2>
+                <input type="text" id="mFilmName" value="Film Name" size="5" />
+                <input type="text" id="mYear" value="Year" size="5" />
+                <input type="text" id="mDirector" value="Director Name" size="5" />
+                <input type="button" value="Create Movie" class="btn btn-success" onclick="createMovie();" />
+            </div>
+
+            <div class="col-md-4">
+                <h2>Delete Movie</h2>
+                <input type="text" id="delete-id" size="5" />
+                <input type="button" value="Delete" class="btn btn-danger" onclick="deleteMovie();" />
+                <p id="user" />
+            </div>
+        </div>
+    
+
+
+    </div>
+
+<div class="btn btn-danger">
+    <input type="button" class="btn btn-danger" value="Search Youtube For this boss" onclick="youtubeSearch();" />
+</div>
+<script type="text/javascript">
+
+
+
+<script>
+
+    var uri = 'http://localhost:8273/api/MovieController/';
+    var youtubeuri = "http://www.googleapis.com/youtube/v3/search";
+
+    function clearList()
+    {
+        $('#movie-list').empty();
+    }
+
+
+    function getMovies() {
+        clearList();
+
+        $.getJSON(uri).done(function (data) {
+            $.each(data, function (key, item) {
+                $('<li>', { text: item.ID + ' : ' + item.Name }).appendTo($('#lstMovies'));
+            });
+        });
+    }
+
+    function createMovie() {
+        var id = 0;
+        var name = $('#mName').val();
+        var cost = $('#mCost').val();
+
+        var movie = {
+            "ID": id,
+            "FilmName": name,
+            "Year": year,
+            "Director": director,
+        };
+
+        $.ajax(
+            {
+                type: 'POST',
+                url: uri,
+                data: JSON.stringify(movie),
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+                processData: true,
+                success: function (data, status) { getMovies(); },
+                error: function (xhr, ajaxOptions, thrownError) { alert('Error: ' + thrownError) }
+            })
+    }
+
+    function deleteMovie() {
+        var id = $("#delete-id").val();
+
+        $.ajax(
+    {
+        type: 'DELETE',
+        url: uri + id,
+        success: function (data, status) { getMovies(); },
+        error: function (xhr, ajaxOptions, thrownError) { alert('Error: ' + thrownError) }
+    })
+    }
+
+    function youtubeSearch() {
+        var q = $('#query').val();
+        var request = gapi.client.youtube.search.list({
+            q: q,
+            part: 'snippet'
+        });
+
+        
+    }
+
+
+
+</script>
+
 

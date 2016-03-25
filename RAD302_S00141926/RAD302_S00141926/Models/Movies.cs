@@ -17,5 +17,11 @@ namespace RAD302_S00141926.Models
     public class MoviesDBContext : DbContext
     {
         public DbSet<Movies> Movies { get; set; }
+
+        public MoviesDBContext()
+            : base("MovieConection")
+        {
+            this.Configuration.LazyLoadingEnabled = false;
+        }
     }
 }
